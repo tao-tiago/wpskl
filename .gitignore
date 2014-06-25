@@ -2,8 +2,7 @@ node_modules
 .settings
 .htaccess
 .project
-*.php
-!wp-content/*.php
+/*.php
 wp-admin
 wp-includes
 wp-content/languages
