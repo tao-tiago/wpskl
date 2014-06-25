@@ -1,0 +1,10 @@
+node_modules
+.settings
+.htaccess
+.project
+*.php
+!wp-content/*.php
+wp-admin
+wp-includes
+wp-content/languages
+wp-content/upgrade
