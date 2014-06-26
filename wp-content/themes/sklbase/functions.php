@@ -1,7 +1,7 @@
 <?php
 
 get_template_part('includes/thumbs');
-#get_template_part('includes/paged');
+get_template_part('includes/paged');
 
 
 /* SIDEBAR */ 
