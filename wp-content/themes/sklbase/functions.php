@@ -1,7 +1,6 @@
 <?php
 
-#get_template_part('includes/thumbs');
-#get_template_part('includes/posttype');
+get_template_part('includes/thumbs');
 #get_template_part('includes/paged');
 
 
