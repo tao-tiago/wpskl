@@ -61,10 +61,10 @@ class Banner{
 		register_post_type( 'Banner', $args );
 	}
 
-	public function front_banner(){ ?>
+	public function front_banner(){
 			
-		<ul class="banner">
-        	<?php
+		echo '<ul class="banner">';
+		
             	$banner = new WP_Query(array('post_type'=>'banner'));
 				while($banner->have_posts()) : $banner->the_post();
 				
@@ -79,19 +79,22 @@ class Banner{
 	                    echo '</li>';
 					endif;
 					
-				endwhile; wp_reset_postdata() 
-			?>
-        </ul>
-        
-        <div class="pagnav"></div>	
+				endwhile; wp_reset_postdata();
+			
+        echo '</ul> <div class="pagnav"></div>';	
 				
-	<?php }
+	}
+	
+	public function __construct(){
+		// Banner
+		add_action( 'init', array($this, 'banner'), 0 );
+
+		// Shortcode Banner
+		add_shortcode( 'banner', array($this, 'front_banner'));
+	}
 
 }
 
-// Banner
-add_action( 'init', array('Banner', 'banner'), 0 );
 
-// Shortcode Banner
-add_shortcode('banner', array('Banner', 'front_banner'));
-
+function banner(){ $banner = new Banner; }
+add_action('init', 'banner');
