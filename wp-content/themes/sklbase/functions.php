@@ -23,13 +23,13 @@ register_nav_menus( array(
 
 
 /* Limitar número caracteres conteúdo -------------- */
-function except_limit($maximo) {
-$except = get_the_excerpt();
-if ( strlen($except) > $maximo ) {
-$continue = '...';
-}
-$except = mb_substr( $except, 0, $maximo, 'UTF-8' );
-echo $except.$continue;
+function limit($content, $limit){
+	if(strlen($content) > $limit){
+		$content = substr($content, 0, $limit);
+		return $content."...";
+	} else {
+		return $content;
+	}
 }
 /* ------------------------------------------------ */
   
