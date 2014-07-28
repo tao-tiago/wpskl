@@ -7,7 +7,7 @@ function custom_logo_login_url() { return home_url(); }
 function custom_logo_login_title() { return get_bloginfo( 'name' ); }
 
 // Customiza o rodapé no admin
-function custom_admin_footer() { echo '<a target="_blank" href="http://www.seudominioaqui.com.br">Nome da empresa</a> &copy; ' . date( 'Y' ); }
+function custom_admin_footer() { echo '<a target="_blank" title="Nome de sua Empresa" href="http://www.seudominioaqui.com.br">Nome da empresa</a> &copy; ' . date( 'Y' ); }
 
 // Esconde a versão do WordPress no admin
 function hide_footer_version() { return ''; }

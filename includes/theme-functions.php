@@ -3,7 +3,7 @@
 class Custom_Functions{
 	
 	// Calls
-	public function call(){
+	public static function call(){
 		// Style
 		wp_enqueue_style( "general" , Wp_Styles."/style.css");
 		// Scripts
