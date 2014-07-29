@@ -1,30 +1,30 @@
 <?php
 
-// Customiza a URL da logo no login
-function custom_logo_login_url() { return home_url(); }
+// Custom logo url
+function custom_logo_login_url() { return get_home_url(); }
 
-// Customiza o titulo da logo no login
+// Custom logo title
 function custom_logo_login_title() { return get_bloginfo( 'name' ); }
 
-// Customiza o rodapé no admin
+// Custom admin footer
 function custom_admin_footer() { echo '<a target="_blank" href="http://www.seudominioaqui.com.br">Nome da empresa</a> &copy; ' . date( 'Y' ); }
 
-// Esconde a versão do WordPress no admin
+// Hide WP version on admin footer
 function hide_footer_version() { return ''; }
 
-// Remove o logo do WordPress da barra de topo
+// Remove WP logo from admin toolbar
 function remove_logo_toolbar( $wp_toolbar ) {
 	global $wp_admin_bar;
 	$wp_toolbar->remove_node( 'wp-logo' );
 }
 
-// Esconde links desnecessários do menu lateral no admin
+// Hide unecessary menu links on admin sidebar
 function hide_admin_menu_links() {
 	# remove_menu_page( 'tools.php' );
 	# remove_submenu_page( 'themes.php', 'theme-editor.php' );
 }
 
-// Remove widgets do dashboard
+// Remove default dashboard widgets
 function remove_dashboard_widgets() {
 	global $wp_meta_boxes;
 	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins']);
@@ -50,7 +50,7 @@ function sanitize_file_name_in_upload($filename) {
 function theme_setup() {
 
 	// Custom logo
-	add_action( 'login_head', 'custom_logo_login' );
+	#add_action( 'login_head', 'custom_logo_login' );
 	
 	// Custom logo url
 	add_filter( 'login_headerurl', 'custom_logo_login_url' );
@@ -78,4 +78,4 @@ function theme_setup() {
 
 }
 
-add_action( 'admin_init', 'theme_setup' );
+add_action( 'init', 'theme_setup' );
