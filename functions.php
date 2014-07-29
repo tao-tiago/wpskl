@@ -13,6 +13,10 @@ if(!defined('Wp_Scripts')) {
 	define( 'Wp_Scripts', get_template_directory_uri().'/src/js');
 }
 
+if(!defined('Wp_Images')) {
+	define( 'Wp_Images', get_template_directory_uri().'/src/images');
+}
+
 
 // Includes
 get_template_part('includes/sidebar');

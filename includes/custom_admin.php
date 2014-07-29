@@ -1,5 +1,16 @@
 <?php
 
+// Custom Imagem Login
+function custom_logo_login() {
+	echo '
+		<style  type="text/css">
+			h1 a {
+				background-image: url(' . Wp_Images . '/login.png) !important;
+			}
+		</style>
+	';
+}
+
 // Custom logo url
 function custom_logo_login_url() { return get_home_url(); }
 
@@ -7,7 +18,7 @@ function custom_logo_login_url() { return get_home_url(); }
 function custom_logo_login_title() { return get_bloginfo( 'name' ); }
 
 // Custom admin footer
-function custom_admin_footer() { echo '<a target="_blank" href="http://www.seudominioaqui.com.br">Nome da empresa</a> &copy; ' . date( 'Y' ); }
+function custom_admin_footer() { echo '<a target="_blank" title="Nome de sua Empresa" href="http://www.seudominioaqui.com.br">Nome da empresa</a> &copy; ' . date( 'Y' ); }
 
 // Hide WP version on admin footer
 function hide_footer_version() { return ''; }
@@ -46,17 +57,22 @@ function sanitize_file_name_in_upload($filename) {
 	return strtolower(sanitize_title($name)).$extension;
 }
 
-
-function theme_setup() {
-
+// Area Login
+function area_login(){
+	
 	// Custom logo
-	#add_action( 'login_head', 'custom_logo_login' );
+	add_action( 'login_head', 'custom_logo_login' );
 	
 	// Custom logo url
 	add_filter( 'login_headerurl', 'custom_logo_login_url' );
 	
 	// Custom logo title
 	add_filter( 'login_headertitle', 'custom_logo_login_title' );
+	
+}
+
+// Area Admin
+function area_admin(){
 	
 	// Custom admin footer
 	add_filter( 'admin_footer_text', 'custom_admin_footer' );
@@ -78,4 +94,6 @@ function theme_setup() {
 
 }
 
-add_action( 'init', 'theme_setup' );
+add_action( 'login_init', 'area_login' );
+
+add_action( 'admin_init', 'area_admin' );
