@@ -20,7 +20,7 @@ if(!defined('Wp_Images')) {
 
 // Includes
 get_template_part('includes/Custom_Functions');
-get_template_part('includes/Custom_Admin');
+get_template_part('includes/Custom_Adm');
 get_template_part('includes/sidebar');
 get_template_part('includes/menu');
 get_template_part('includes/thumbs');
