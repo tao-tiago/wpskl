@@ -3,12 +3,21 @@
 		<?php 
 			if(have_posts()) : while(have_posts()) : the_post();
 
+					// Date
 					the_date("d/m/Y");
+			
+					// Title
 					the_title();
-					the_content();
+					
+					// Limit Caracters Content
+					$limit = new Custom_Functions();
+					echo $limit->limit(get_the_content(), 52);
 					
 				endwhile;
-				
+					
+					// Paginate
+					$paginate = new Custom_Functions();
+					echo $paginate->paginate();
 			else :
 				
 				echo "No Post!";
