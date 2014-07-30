@@ -90,10 +90,12 @@ function area_admin(){
 	add_action( 'wp_dashboard_setup', 'remove_dashboard_widgets' );
 	
 	// Fix problem accentuation in images upload
-	add_filter('sanitize_file_name', 'sanitize_file_name_in_upload', 10);
+	add_filter( 'sanitize_file_name', 'sanitize_file_name_in_upload', 10);
 
 }
 
+// Load functions area login 
 add_action( 'login_init', 'area_login' );
 
+// Load functions area admin
 add_action( 'admin_init', 'area_admin' );
