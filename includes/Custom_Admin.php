@@ -1,5 +1,9 @@
 <?php
 
+/* ===============================
+	Área de Login
+=============================== */
+
 // Custom Imagem Login
 function custom_logo_login() {
 	echo '
@@ -16,6 +20,11 @@ function custom_logo_login_url() { return get_home_url(); }
 
 // Custom logo title
 function custom_logo_login_title() { return get_bloginfo( 'name' ); }
+
+
+/* ===============================
+	Área de Admin
+=============================== */
 
 // Custom admin footer
 function custom_admin_footer() { echo '<a target="_blank" title="Nome de sua Empresa" href="http://www.seudominioaqui.com.br">Nome da empresa</a> &copy; ' . date( 'Y' ); }

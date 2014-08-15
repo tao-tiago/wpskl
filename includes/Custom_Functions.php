@@ -11,17 +11,8 @@ class Custom_Functions{
 		wp_enqueue_script( "custom_jquery" , Wp_Scripts."/custom_jquery.js", array(), false, false);
 	}
 	
-	// Limit Caracters
-	public function limit($content, $limit){
-		if(strlen($content) > $limit){
-			$content = substr($content, 0, $limit);
-			$content = $content."...";
-		}
-		return $content;
-	}
-	
 	// Paginate
-	public function paginate( $args = array() )
+	public static function paginate( $args = array() )
 	{
 	    global $wp_query;
 
@@ -55,11 +46,6 @@ class Custom_Functions{
 	    ) ) );
 
 	    echo $paginate_links;
-	}
-	
-	// Construct
-	public function __construct(){
-		return $this;
 	}
 	
 }
